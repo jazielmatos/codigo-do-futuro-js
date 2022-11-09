@@ -1,0 +1,22 @@
+<script>
+    
+    n1 = parseInt(prompt("Digite o número inicial: "))
+    n2 = parseInt(prompt("Digite o número final: "))
+
+    if(n1 == n2){
+        console.log(n1);
+    }else if(n1 > n2){
+        for(n1;n1>=n2;n1--){
+            if(n1%2 == 0){
+                console.log(n1)
+            }
+        }   
+    }else if(n1 < n2){
+        for(n1;n1<=n2;n1++){
+            if(n1%2 == 0){
+                console.log(n1)
+            }
+        }   
+    }
+
+</script>
