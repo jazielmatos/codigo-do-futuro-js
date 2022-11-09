@@ -1,0 +1,40 @@
+  <script>
+  var Alunos = [];
+    
+    do{
+        var escolha = prompt("MENU ESCOLAR\nESCOLHA UMA DAS OPÇÕES:\n1 - CADASTRO DE ALUNOS\n2 - RELATÓRIO DE ALUNOS");
+        if(escolha == '1'){
+            do{
+                let nomeAluno = prompt("Digite o nome do aluno: ");
+                let matriculaAluno = prompt("Digite a matricula do aluno: ");
+                var nota = 0;
+                var qtd = 0;
+                do{
+                    nota = nota + Number(prompt("Digite a nota do aluno: "));
+                    qtd++;
+                    escolha = prompt("Quer adicionar outra nota? S/N").toUpperCase();
+                }while(escolha == "S")
+                let mediaAluno = nota / qtd;
+                var dadosAluno = [{nome: nomeAluno,matricula: matriculaAluno,notas: nota,media: mediaAluno},];
+                Alunos.push(...dadosAluno);
+                alert("Aluno "+ Alunos[(Alunos.length - 1)].nome + " adicionado com sucesso!!");
+                escolha = prompt("Deseja Continuar Cadastrando? S/N").toUpperCase();
+            }while(escolha == "S");
+        }else if(escolha != '2'){
+            alert("OPÇÃO INVÁLIDA!!..")
+        }
+    }while(escolha != '2')
+    var relatorio = "";
+    for(let i=0;i<Alunos.length;i++){
+        if(Alunos[i].media < 5){
+            situacao = "Reprovado";
+        }else if(Alunos[i].media >= 7){
+            situacao = "Aprovado"
+        }else{
+            situacao = "Recuperação"
+        }
+        relatorio = relatorio + `\n Aluno...: ${Alunos[i].nome} | Matricula...: ${Alunos[i].matricula} | Notas...: ${Alunos[i].notas} | Média...: ${Alunos[i].media} | Situ...: ${situacao}`;      
+    }
+    alert(relatorio);
+
+</script>
